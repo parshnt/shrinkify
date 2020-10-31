@@ -1,0 +1,11 @@
+# npm-universe
+node_modules
+
+# environment variables
+.env
+
+# Netlify folder
+functions
+
+# cache
+.cache

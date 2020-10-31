@@ -1,0 +1,27 @@
+[build]
+  functions = "functions"
+
+# Redirects set-up below are required to trigger serverless func.
+# Don't change the orders of redirects
+
+# redirect to shorten POST endpoint
+[[redirects]]
+  from = "/api"
+  to = "/.netlify/functions/api/api"
+  status = 307
+
+# redirect to homepage
+[[redirects]]
+  from = "/"
+  to = "/*"
+  status = 200
+
+# redirects the GET request to serverless
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 302
+
+# env vars. to set-up mongoDB
+[template.environment]
+  MONGO_URL = "your mongoDB URI"
